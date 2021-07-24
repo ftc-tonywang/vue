@@ -1,0 +1,67 @@
+<head>
+    <script src= "https://unpkg.com/vue/dist/vue.js"></script>
+    <style type="text/css">
+        .test{
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <div class="view">
+        <div class="test" v-on:click="speak"></div>
+        <div class="test" @click="run"></div>
+        <!-- 根據點擊次數i,顯示不同的內容:
+        1-5次: 用點力...
+        6-10次: 沒吃飯嗎... 
+        11-15次 沒感覺... 
+        16次以上 麻木了...  -->
+
+        <div class="test" @click="add">{{i}} {{strFn}}</div>
+    </div>
+</body>
+
+<script type="text/javascript">
+var app = new Vue({
+    el:".view",             //掛載點
+    data:{                  //數據選項
+        message: "hello",
+        i: 0,
+    },
+    methods:{               //方法選項
+        run:function(){
+            alert("我會跑,還會飛");
+        },
+        speak:function(){
+            alert("我會講話");
+        },
+        add:function(){
+            this.i++;
+            console.log(this.i);
+        }
+    },
+    computed:{              //計算屬性(方法),也就是說它這個屬性是包含方法的
+        strFn:function(){
+            if(this.i <= 5){
+                return "用點力...";
+            }else if(this.i <= 10){
+                return "沒吃飯嗎... ";
+            }else if(this.i <= 15){
+                return "沒感覺... ";
+            }else{
+                return "麻木了... ";
+            }
+        }
+    },
+    watch:{                 //監聽屬性
+        i:function(newValue, oldValue){
+            console.log(newValue, oldValue);
+        }
+    }
+});
+</script>

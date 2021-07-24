@@ -1,0 +1,41 @@
+<head>
+    <script src= "https://unpkg.com/vue/dist/vue.js"></script>
+    <style type="text/css">
+        .test{
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <div class="view">
+        <div class="test" v-on:click="speak"></div>
+        <div class="test"></div>
+        <!-- 根據點擊次數i,顯示不同的內容:
+        1-5次: 用點力...
+        6-10次: 沒吃飯嗎... 
+        11-15次 沒感覺... 
+        16次以上 麻木了...  -->
+
+        <div class="test" @click="add">{{i}} {{strFn}}</div>
+    </div>
+</body>
+
+<script type="text/javascript">
+var app = new Vue({
+    el:".view",
+    data:{
+
+    },
+    methods: {
+        run:function(){
+
+        }
+    },
+})
+</script>

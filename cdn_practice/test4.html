@@ -1,0 +1,44 @@
+<head>
+    <script src= "https://unpkg.com/vue/dist/vue.js"></script>
+    <style type="text/css">
+        .show{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+        .view{
+            width: 300px;
+            height: 30px;
+            border: 1px solid gray;
+            margin: 20px auto;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .active{
+            background: red;
+            color: white;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <div id="app">
+        <div id="app">
+            <input type="text" v-model="title">
+            {{title}}
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+var app = new Vue({
+    el:"#app",
+    data:{
+        title: "Vue入門"
+    }
+});
+</script>

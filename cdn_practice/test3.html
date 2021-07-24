@@ -1,0 +1,64 @@
+<head>
+    <script src= "https://unpkg.com/vue/dist/vue.js"></script>
+    <style type="text/css">
+        .show{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+        .view{
+            width: 300px;
+            height: 30px;
+            border: 1px solid gray;
+            margin: 20px auto;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .active{
+            background: red;
+            color: white;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <div id="app">
+        <!-- 事件綁定 -->
+        <div class="show" v-on:click="speak"></div>
+        <br>
+        <div class="show" @click="speak"></div>
+        <!-- 屬性綁定 -->
+        <img src="bbb.jpg">
+        <img v-bind:src="imgName">
+        <img :src="imgName">
+        <!-- 樣式綁定 -->
+        <!-- isAction為true,即添加active樣式
+        isAction為true,即添加active樣式, 若是子節點的判斷就要下{active:item.isActive} -->
+        <div class="view" v-bind:class="{active:isActive}">
+            {{message}}
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+var app = new Vue({
+    el:"#app",
+    data:{
+        imgName: "bbb.jpg",
+        message: "一個vue的測試",
+        isActive: true,
+		item: {
+			isActive: false
+		}
+    },
+    methods:{
+        speak:function(){
+            alert("right");
+        }
+    }
+});
+</script>
